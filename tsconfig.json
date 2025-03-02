@@ -1,8 +1,12 @@
 {
   "compilerOptions": {
-    "module": "esnext",  // or "node16"
     "jsx": "react-jsx",
-        "types": ["node"]
-    "moduleResolution": "node"
+    "jsxImportSource": "react",
+    "module": "esnext",  // or "node16"
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true,
+    "target": "es2015",
+    "types": ["node"]
   }
 }
