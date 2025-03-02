@@ -2,10 +2,11 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "react",
-    "module": "esnext",  // or "node16"
+    "module": "esnext",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "allowImportingTsExtensions": true,
+    "noEmit": true,  // Required for allowImportingTsExtensions
     "target": "es2015",
     "types": ["node"]
   }
