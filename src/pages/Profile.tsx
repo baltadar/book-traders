@@ -96,14 +96,48 @@ export default function Profile() {
         `)
         .eq('user_id', user.id)
         .order('created_at', { ascending: false });
-      
+
       if (error) {
         throw error;
       }
-      
+
       setUserBooks(data as Book[]);
     } catch (error) {
-      console. <boltArtifact id="nairobi-book-traders-implementation" title="Implement Nairobi Book Traders Platform">
+      console.error('Error fetching user books:', error);
+      toast.error('Failed to load books');
+    } finally {
+      setLoadingBooks(false);
     }
-  }
+  };
+
+  const fetchUserRequests = async () => {
+    if (!user) return;
+
+    try {
+      setLoadingRequests(true);
+
+      const { data, error } = await supabase
+        .from('book_requests')
+        .select(`
+          *,
+          profiles (
+            username,
+            location
+          )
+        `)
+        .eq('user_id', user.id)
+        .order('created_at', { ascending: false });
+
+      if (error) {
+        throw error;
+      }
+
+      setUserRequests(data as BookRequest[]);
+    } catch (error) {
+      console.error('Error fetching user requests:', error);
+      toast.error('Failed to load requests');
+    } finally {
+      setLoadingRequests(false);
+    }
+  };
 }
