@@ -5,9 +5,10 @@
     "module": "esnext",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "allowImportingTsExtensions": true,
-    "noEmit": true,  // Required for allowImportingTsExtensions
-    "target": "es2015",
-    "types": ["node"]
+    "resolveJsonModule": true,
+    "target": "es2017",
+    "types": ["vite/client", "node"], 
+    "skipLibCheck": true,
+    "noEmit": true
   }
 }
