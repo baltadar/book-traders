@@ -2,6 +2,7 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "react",
+    "module": "esnext",  // or "module": "node16" depending on your needs
     "moduleResolution": "node"
   }
 }
