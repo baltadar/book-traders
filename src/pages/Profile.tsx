@@ -140,4 +140,46 @@ export default function Profile() {
       setLoadingRequests(false);
     }
   };
+
+  return (
+    <div>
+      <h1>Profile</h1>
+      {loading ? (
+        <p>Loading profile...</p>
+      ) : (
+        <div>
+          <div>
+            <FaUser /> {username}
+            <FaMapMarkerAlt /> {location}
+            <FaPhone /> {contact}
+          </div>
+          <div>
+            <button onClick={() => setActiveTab('profile')}>Profile</button>
+            <button onClick={() => setActiveTab('books')}>Books</button>
+            <button onClick={() => setActiveTab('requests')}>Requests</button>
+          </div>
+          
+          {activeTab === 'books' && (
+            <div>
+              {loadingBooks ? (
+                <p>Loading books...</p>
+              ) : (
+                userBooks.map((book) => <BookCard key={book.id} book={book} />)
+              )}
+            </div>
+          )}
+          
+          {activeTab === 'requests' && (
+            <div>
+              {loadingRequests ? (
+                <p>Loading requests...</p>
+              ) : (
+                userRequests.map((request) => <RequestCard key={request.id} request={request} />)
+              )}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
 }
